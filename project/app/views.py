@@ -24,23 +24,26 @@ def regi(request):
 
 
 def login(request):
+    # print(request.COOKIES)
     form=Login()
     if request.method=='POST':
         data=Login(request.POST)
         if data.is_valid():
-            Email=data.cleaned_data['stu_email']
-            Contact=data.cleaned_data['stu_contact']
+            Email=data.cleaned_data['email']
+            Contact=data.cleaned_data['contact']
             # print(Email,Contact)
-            # data.save()
-            # data.set_cookie('name')
-            # data.set_cookie('email')
-            # data.set_cookie('contact')
+            nm=request.COOKIES['name']
+            em=request.COOKIES['email']
+            con=request.COOKIES['contact']
+            data={
+                'name':nm,
+                'email':em,
+                'contact':con
+            }
+            return render(request,'get.html',data)
+            
+
+
     return render(request,'login.html',{'form':form})
 
 
-# def set(request):
-#     response=render(request,'regi.html')
-#     response.set_cookie('name')
-#     response.set_cookie('email')
-#     response.set_cookie('contact')
-#     return response

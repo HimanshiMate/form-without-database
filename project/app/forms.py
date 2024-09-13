@@ -10,3 +10,5 @@ class Registration(forms.Form):
 class Login(forms.Form):
     email=forms.EmailField()
     contact=forms.Field()
+
+
