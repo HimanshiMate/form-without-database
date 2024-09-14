@@ -41,9 +41,16 @@ def login(request):
                 'contact':con
             }
             return render(request,'get.html',data)
-            
-
-
     return render(request,'login.html',{'form':form})
+
+
+def delete(request):
+        
+        res=render(request,'home.html')
+        res.delete_cookie('name')
+        res.delete_cookie('email')
+        res.delete_cookie('contact')
+        return res   
+    
 
 

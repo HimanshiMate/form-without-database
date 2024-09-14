@@ -7,5 +7,5 @@ urlpatterns = [
     path('',home,name="home"),
     path('regi/',regi,name="regi"),
     path('login/',login,name="login"),
-    # path('set/',set,name="set")
+    path('delete/',delete,name="delete")
 ]
